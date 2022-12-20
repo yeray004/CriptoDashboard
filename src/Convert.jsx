@@ -19,7 +19,7 @@ export default function Convert() { //Hooks useState con valores iniciales / pre
     );
     // Establecemos el valor de los datos obtenidos
     setCoin(result.data);
-    // Para conocer los datos obtenidos en consola: console.log(result.data)
+    // "Para conocer los datos obtenidos en consola: console.log(result.data)"
   };
   // Se obtienen los datos cuando el componente cargue
   useEffect(() => {

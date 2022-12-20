@@ -22,7 +22,7 @@ export default function InputConvert({ coin,  sel = "btc", fun, other,text, type
               setSelVal(selRef.current.value) //En el prámetro de setSelVal dejamos la var selRef con su valor actual
               fun(selRef.current.value) //Repetimos lo mismo en "fun"
             }}>
-            {coin.map((co) => { //A una función cramos su array recorriendo los datos de co en .map
+            {coin.map((co) => { //A una función cramos su array recorriendo los datos de "co" en .map
               if(co.symbol === selVal){ //si el simbolo de la moneda es igual al valor 
                 selRef.current.previousSibling.src = co.image //seleccionamos la referencia previa del elemento y añadimos su imagen
                 return <option value={co.symbol} key={co.id}>{co.symbol}</option>

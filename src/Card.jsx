@@ -1,4 +1,4 @@
-import "./Card.css" //estilos del componente
+import "./Card.css" //Estilos
 import Graph from "./Graph" //componnete de gráficas
 import {colorDec} from './App' //función global
 //exportamos la función de card con props de la API
@@ -14,7 +14,7 @@ export default function Card({coinId, cur, porcentaje, price, img}){
                     {/* Porcentaje de cada carta */}
                     <h4 className={`porcentajes ${colorDec(porcentaje)}`}>{porcentaje}%</h4>
                 </div>
-                {/* Gráfica de cada carta */}
+                {/* Gráfica de cada carta con valores llamados desde este componente */}
                 <Graph coin={coinId} currency={cur} color={colorDec(porcentaje)}/>
             </div>
         </div>

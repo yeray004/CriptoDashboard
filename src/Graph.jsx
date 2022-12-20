@@ -68,18 +68,18 @@ export default function Graph({type = 1, coin = "bitcoin", currency = "usd", day
     },[])
     
     
-    //Creamos un switch con diferente casos qie modifican la forma en como podemos ver las gráfocas del dashboard
+    //Creamos un switch con diferente casos que modifican la forma en como podemos ver las gráfocas del dashboard
     switch(type){
         case 0: //Primer caso de estilo en gráfica
             options = { //opciones de visualización
-                responsive: true, //gráfica esponsive
+                responsive: true, //gráfica responsive
                 maintainAspectRatio: true, //Maniene su proporción
                 plugins: {
                   legend: {
                     display: false, //Sin etiqueta superior
                   },
                   title: {
-                    display: false, //Sin título sperior
+                    display: false, //Sin título superior
                   }
                 },
                 scales: { //sin líneas de grafica en "x" y "y"
@@ -94,6 +94,8 @@ export default function Graph({type = 1, coin = "bitcoin", currency = "usd", day
                         },
                         ticks: {
                             callback: function(value) {
+                                //Deja una expreción que cada 3 dígito genera un "." y nos regresa un string con tres partes "$"+ " " + currency.toUpperCase()
+                                //Entonces, si el valor es 123456789 y la moneda es "usd", la función devolverá la cadena "$123.456.789 USD".
                                 return `$${value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} ${currency.toUpperCase()}`;
                             }
                         }
@@ -107,7 +109,7 @@ export default function Graph({type = 1, coin = "bitcoin", currency = "usd", day
                     data: prices,
                     borderColor: color,
                     backgroundColor: gradient, //color de "fill"
-                    tension: .4, //tención en los puntos de cambio al traado de la línea entre puntos
+                    tension: .4, //tención en los puntos de cambio al trazo de la línea entre estos
                     pointRadius: 0, //puntos de gráfica
                     fill: true //Relleno de gráfica
                   }
